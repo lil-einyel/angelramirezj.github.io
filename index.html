@@ -1,626 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Ramirez | Data Analytics & Visualization Leader</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angel Ramírez Jiménez — Sr. Technical Program Manager | Data & AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4f1eb;
+    --accent: #e84d2a;
+    --accent2: #1a6cff;
+    --mid: #4a4a5a;
+    --rule: #d8d4ca;
+    --card: #ffffff;
+    --mono: 'DM Mono', monospace;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-        }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(244,241,235,0.88); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+  #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 60px; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 4rem; }
+  .hero-tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-tag::before { content: ''; display: inline-block; width: 2rem; height: 2px; background: var(--accent); }
+  .hero-name { font-family: var(--display); font-size: clamp(4.5rem,8vw,8rem); line-height: 0.92; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 1.5rem; }
+  .hero-name span { color: var(--accent); display: block; }
+  .hero-title { font-size: 1.05rem; color: var(--mid); max-width: 420px; line-height: 1.7; margin-bottom: 2.5rem; border-left: 3px solid var(--accent); padding-left: 1.25rem; }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num { font-family: var(--display); font-size: 2.2rem; letter-spacing: 0.02em; line-height: 1; color: var(--ink); }
+  .stat-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.25rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 20s linear infinite;
-        }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.85rem 1.75rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--ink); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.85rem 1.75rem; text-decoration: none; border: 1.5px solid var(--ink); transition: all 0.2s; }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
 
-        @keyframes drift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
+  .hero-right { position: relative; background: var(--ink); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .data-visual { position: absolute; inset: 0; opacity: 0.08; background-image: linear-gradient(var(--paper) 1px, transparent 1px), linear-gradient(90deg, var(--paper) 1px, transparent 1px); background-size: 40px 40px; }
+  .metric-stack { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.5rem; padding: 3rem; }
+  .metric-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 2rem; position: relative; overflow: hidden; animation: fadeSlideIn 0.6s ease both; }
+  .metric-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .metric-card:nth-child(2) { margin-left: 2rem; animation-delay: 0.15s; }
+  .metric-card:nth-child(2)::before { background: var(--accent2); }
+  .metric-card:nth-child(3) { margin-left: 1rem; animation-delay: 0.3s; }
+  .metric-card:nth-child(3)::before { background: #22c55e; }
+  .metric-num { font-family: var(--display); font-size: 3rem; letter-spacing: 0.03em; color: #fff; line-height: 1; margin-bottom: 0.25rem; }
+  .metric-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            padding: 2rem;
-            max-width: 900px;
-        }
+  .marquee-wrap { background: var(--accent); overflow: hidden; padding: 0.75rem 0; white-space: nowrap; }
+  .marquee-track { display: inline-block; animation: marquee 32s linear infinite; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease-out;
-        }
+  section { padding: 6rem 4rem; }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; }
+  .section-num { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+  .section-title { font-family: var(--display); font-size: clamp(2.8rem,5vw,4.5rem); letter-spacing: 0.02em; line-height: 1; color: var(--ink); }
+  .section-rule { flex: 1; height: 1px; background: var(--rule); margin-left: 1rem; }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
+  #experience { background: var(--paper); }
+  .timeline { display: flex; flex-direction: column; position: relative; max-width: 900px; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0.6rem; bottom: 0; width: 1px; background: var(--rule); }
+  .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 0 3rem; padding: 0 0 3.5rem 0; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--paper); }
+  .timeline-item:nth-child(2)::before { background: var(--accent2); }
+  .timeline-item:nth-child(3)::before { background: #22c55e; }
+  .timeline-item:nth-child(4)::before { background: #f59e0b; }
+  .timeline-item:nth-child(5)::before { background: #a855f7; }
+  .timeline-item:nth-child(6)::before { background: #06b6d4; }
+  .tl-meta { padding-top: 0.15rem; text-align: right; }
+  .tl-date { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--mid); line-height: 1.5; }
+  .tl-company { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); margin-top: 0.35rem; text-transform: uppercase; }
+  .tl-tag { display: inline-block; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.15rem 0.5rem; border: 1px solid var(--rule); color: var(--mid); margin-top: 0.5rem; }
+  .tl-role { font-family: var(--display); font-size: 1.65rem; letter-spacing: 0.03em; color: var(--ink); line-height: 1.1; margin-bottom: 0.75rem; }
+  .tl-desc { font-size: 0.92rem; color: var(--mid); line-height: 1.7; margin-bottom: 0.75rem; }
+  .tl-win { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: var(--ink); line-height: 1.6; margin-bottom: 0.4rem; font-weight: 500; }
+  .tl-win::before { content: '▲'; font-size: 0.55rem; color: var(--accent); margin-top: 0.35rem; flex-shrink: 0; }
 
-        .hero .tagline {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
+  #skills { background: var(--ink); color: var(--paper); }
+  #skills .section-title { color: var(--paper); }
+  #skills .section-rule { background: rgba(255,255,255,0.12); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
+  .skill-group { background: var(--ink); padding: 2rem; transition: background 0.2s; }
+  .skill-group:hover { background: #12121a; }
+  .skill-group-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .skill-group:nth-child(2) .skill-group-title { color: var(--accent2); }
+  .skill-group:nth-child(3) .skill-group-title { color: #22c55e; }
+  .skill-group:nth-child(4) .skill-group-title { color: #f59e0b; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pill { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.12); padding: 0.3rem 0.7rem; transition: all 0.2s; cursor: default; }
+  .pill:hover { border-color: var(--accent); color: #fff; }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  #certifications { background: var(--paper); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.5rem; }
+  .cert-card { background: var(--card); border: 1px solid var(--rule); padding: 1.75rem; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .cert-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .cert-card:hover::after { transform: scaleX(1); }
+  .cert-card:nth-child(2)::after { background: var(--accent2); }
+  .cert-card:nth-child(3)::after { background: #22c55e; }
+  .cert-card:nth-child(4)::after { background: #f59e0b; }
+  .cert-card:nth-child(5)::after { background: #a855f7; }
+  .cert-card:nth-child(6)::after { background: #06b6d4; }
+  .cert-issuer { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.6rem; }
+  .cert-name { font-family: var(--body); font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 0.5rem; }
+  .cert-date { font-family: var(--mono); font-size: 0.62rem; color: var(--mid); }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
+  #contact { background: var(--ink); color: var(--paper); text-align: center; padding: 7rem 4rem; position: relative; overflow: hidden; }
+  #contact::before { content: "LET'S TALK"; font-family: var(--display); font-size: 18vw; line-height: 0.9; color: rgba(255,255,255,0.03); position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; letter-spacing: 0.02em; }
+  .contact-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+  .contact-tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+  .contact-headline { font-family: var(--display); font-size: clamp(3rem,6vw,5.5rem); letter-spacing: 0.02em; line-height: 0.95; color: #fff; margin-bottom: 1.5rem; }
+  .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; }
+  .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-light { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: var(--ink); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.2s; }
+  .btn-light:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+  .btn-outline-light { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: rgba(255,255,255,0.75); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+  .btn-outline-light:hover { border-color: #fff; color: #fff; transform: translateY(-2px); }
 
-        .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+  footer { background: #050508; color: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; }
+  footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: rgba(255,255,255,0.7); }
 
-        .btn-primary {
-            background: white;
-            color: #667eea;
-        }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+  @keyframes fadeSlideIn { from { opacity:0; transform: translateX(24px); } to { opacity:1; transform: translateX(0); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 1.5rem;
-            gap: 3rem;
-        }
-
-        nav a {
-            color: #1a1a1a;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .job-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .job-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .job-company {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .job-period {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .job-card ul {
-            margin-left: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .job-card li {
-            margin-bottom: 0.75rem;
-            color: #444;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            padding: 2rem;
-            border-radius: 12px;
-        }
-
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #444;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .cert-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .cert-card h3 {
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-status {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact-links a:hover {
-            color: #667eea;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 260px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .metric-stack { padding: 2rem 1.5rem; flex-direction: row; flex-wrap: wrap; }
+    .metric-card { flex: 1 1 140px; }
+    .metric-card:nth-child(2), .metric-card:nth-child(3) { margin-left: 0; }
+    section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .tl-meta { text-align: left; }
+    .timeline::before, .timeline-item::before { display: none; }
+    #contact { padding: 5rem 1.5rem; }
+  }
+</style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Angel Ramirez</h1>
-            <div class="subtitle">Data Analytics & Visualization Leader</div>
-            <p class="tagline">Transforming complex data into actionable insights through advanced analytics, visualization, and strategic leadership. 10 years of experience driving data-driven decision-making across global organizations.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="https://www.linkedin.com/in/angelramirezj" target="_blank" class="btn btn-secondary">View LinkedIn</a>
-            </div>
-        </div>
+<nav>
+  <span class="nav-logo">ARJ · Portfolio</span>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Technical Program Management · Data & AI Enablement</div>
+    <h1 class="hero-name">
+      Angel<br />
+      <span>Ramírez</span>
+      Jiménez
+    </h1>
+    <p class="hero-title">
+      9+ years turning data complexity into executive decisions. Now building AI-powered programs that drive outcomes — not just dashboards.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">9+</span>
+        <span class="stat-label">Years in Data & AI</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">25+</span>
+        <span class="stat-label">Dashboards Migrated</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1,300+</span>
+        <span class="stat-label">Quarterly Users</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">↓ Get in Touch</a>
+      <a href="#" class="btn-secondary" id="resume-link">↓ Download Resume</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="data-visual"></div>
+    <div class="metric-stack">
+      <div class="metric-card">
+        <div class="metric-num">30%</div>
+        <div class="metric-label">Data processing optimized · 25+ dashboards migrated to Snowflake · PIMCO</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">60%</div>
+        <div class="metric-label">Query time reduced · Global Supply Chain migration · Alcon</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">200+</div>
+        <div class="metric-label">Global stakeholders on self-service platform · 300 hrs/mo saved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    Power BI &nbsp;·&nbsp; Tableau &nbsp;·&nbsp; SQL &nbsp;·&nbsp; Python &nbsp;·&nbsp; Snowflake &nbsp;·&nbsp; Azure &nbsp;·&nbsp; AWS &nbsp;·&nbsp; Microsoft Fabric &nbsp;·&nbsp; Databricks &nbsp;·&nbsp; dbt &nbsp;·&nbsp; Looker &nbsp;·&nbsp; Alteryx &nbsp;·&nbsp; Copilot Studio &nbsp;·&nbsp; AI Builder &nbsp;·&nbsp; Jira &nbsp;·&nbsp; Confluence &nbsp;·&nbsp; SAFe 6.0 &nbsp;·&nbsp; Scrum Master CSM® &nbsp;·&nbsp; Technical Roadmaps &nbsp;·&nbsp; OKR Planning &nbsp;·&nbsp; Generative AI &nbsp;·&nbsp;&nbsp;
+    Power BI &nbsp;·&nbsp; Tableau &nbsp;·&nbsp; SQL &nbsp;·&nbsp; Python &nbsp;·&nbsp; Snowflake &nbsp;·&nbsp; Azure &nbsp;·&nbsp; AWS &nbsp;·&nbsp; Microsoft Fabric &nbsp;·&nbsp; Databricks &nbsp;·&nbsp; dbt &nbsp;·&nbsp; Looker &nbsp;·&nbsp; Alteryx &nbsp;·&nbsp; Copilot Studio &nbsp;·&nbsp; AI Builder &nbsp;·&nbsp; Jira &nbsp;·&nbsp; Confluence &nbsp;·&nbsp; SAFe 6.0 &nbsp;·&nbsp; Scrum Master CSM® &nbsp;·&nbsp; Technical Roadmaps &nbsp;·&nbsp; OKR Planning &nbsp;·&nbsp; Generative AI &nbsp;·&nbsp;
+  </div>
+</div>
+
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Jul 2025 — Present</div>
+        <div class="tl-company">Better Companies</div>
+        <span class="tl-tag">Full-time · Irvine, CA</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Program Manager — Analytics</div>
+        <p class="tl-desc">Own the end-to-end program roadmap for a multi-phase Microsoft Fabric lakehouse implementation, coordinating 3 cross-functional technical teams to centralize data ingestion across all company systems and enable AI-driven executive decision-making. Primary bridge between engineering and business stakeholders, translating complex data infrastructure requirements into clear delivery milestones.</p>
+        <div class="tl-win">Optimized 3 data processes within the lakehouse architecture, reducing overall platform capacity usage by 13%.</div>
+        <div class="tl-win">Designed and launched a Jira-based intake system enabling full visibility into team workload, response times, and ticket lifecycle by category.</div>
+        <div class="tl-win">Increased adoption and usage tracking for Sales agent dashboards, improving visibility into report consumption and agent performance org-wide.</div>
+      </div>
     </div>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-grid">
-            <div class="job-card">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Data Visualization & Analytics Lead</div>
-                        <div class="job-company">PIMCO</div>
-                    </div>
-                    <div class="job-period">Mar 2023 – Present</div>
-                </div>
-                <ul>
-                    <li>Architected and managed migration of 25+ Client Data Intelligence Dashboards to scalable cloud-based Snowflake data lake, optimizing data processing by 30%</li>
-                    <li>Partnered with leadership across APAC, EMEA, and US regions to influence go-to-market strategy through 8+ strategic dashboards</li>
-                    <li>Reduced manual Excel analysis by 12% and improved executive decision-making speed</li>
-                </ul>
-            </div>
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Mar 2023 — Jul 2025</div>
+        <div class="tl-company">PIMCO</div>
+        <span class="tl-tag">Contract · Newport Beach, CA</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Data Visualization & Analytics Lead</div>
+        <p class="tl-desc">Led architecture and delivery of BI solutions for regional teams across APAC and EMEA at one of the world's largest fixed-income investment managers. Partnered with senior leadership on data-driven go-to-market strategy and daily performance monitoring. Drove adoption metrics and change management for large-scale dashboard migrations.</p>
+        <div class="tl-win">Architected migration of 25+ Client Data Intelligence Dashboards to a Snowflake-based cloud data lake, optimizing data processing by 30%.</div>
+        <div class="tl-win">Delivered 8+ strategic dashboards that reduced manual analysis by 12% and improved performance monitoring for regional leadership.</div>
+      </div>
+    </div>
 
-            <div class="job-card">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Analytics Manager - Global Supply Chain</div>
-                        <div class="job-company">Alcon</div>
-                    </div>
-                    <div class="job-period">Apr 2021 – Mar 2023</div>
-                </div>
-                <ul>
-                    <li>Managed end-to-end transition of Global Supply Chain Analytics from SQL Server to SAP BW, coordinating 3 global teams</li>
-                    <li>Served as Scrum Master for 14-member analytics team, improving delivery efficiency by 20%</li>
-                    <li>Reduced query times by 60% and enhanced data accuracy across global operations</li>
-                </ul>
-            </div>
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Apr 2021 — Mar 2023</div>
+        <div class="tl-company">Alcon</div>
+        <span class="tl-tag">Full-time · Mexico City</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Analytics Manager — Global Supply Chain</div>
+        <p class="tl-desc">Owned program roadmap and backlog for the Global Supply Chain Analytics migration, leading sprint ceremonies across 3 global teams in México, India, and Switzerland. Served as Scrum Master for a 14-member cross-functional team, managing blockers and driving on-time delivery across time zones.</p>
+        <div class="tl-win">Led end-to-end migration from SQL Server to SAP BW, improving data accuracy and reducing query times by 60%.</div>
+        <div class="tl-win">Built a self-service analytics platform used by 200+ global stakeholders, automating 15+ manual reports and saving 300+ hours/month.</div>
+        <div class="tl-win">Improved overall project delivery efficiency by 20% through Agile process improvements and structured sprint management.</div>
+      </div>
+    </div>
 
-            <div class="job-card">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Analytics Manager - Dashboard & Visualization</div>
-                        <div class="job-company">Alcon</div>
-                    </div>
-                    <div class="job-period">Mar 2020 – Mar 2021</div>
-                </div>
-                <ul>
-                    <li>Launched 4 flagship Tableau products serving 1,300+ quarterly users including senior executives</li>
-                    <li>Led team of 5 analysts across Poland, India, and Mexico, delivering strategic analytics use cases</li>
-                    <li>Improved insight democratization across global teams through BI enablement initiatives</li>
-                </ul>
-            </div>
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Mar 2020 — Mar 2021</div>
+        <div class="tl-company">Alcon</div>
+        <span class="tl-tag">Full-time · Mexico City</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Analytics Manager — Dashboard & Visualization</div>
+        <p class="tl-desc">Led BI and enablement initiatives for the Global BPA Team and Transformation Office, managing a distributed team of 5 across Poland, India, and Mexico.</p>
+        <div class="tl-win">Launched 4 dashboards on the FinD Tableau Analytics suite, reaching 1,300+ quarterly users including senior executives.</div>
+      </div>
+    </div>
 
-            <div class="job-card">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Sr. Business Intelligence Consultant</div>
-                        <div class="job-company">AgileThought</div>
-                    </div>
-                    <div class="job-period">Mar 2018 – Mar 2020</div>
-                </div>
-                <ul>
-                    <li>Designed and deployed large-scale MicroStrategy BI application for Private Equity clients, improving reporting speed by 35%</li>
-                    <li>Created Power BI training program, certifying 7 developers and driving 45% increase in BI tool usage</li>
-                </ul>
-            </div>
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Mar 2018 — Mar 2020</div>
+        <div class="tl-company">AgileThought</div>
+        <span class="tl-tag">Full-time · Mexico City</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Sr. Business Intelligence Consultant</div>
+        <p class="tl-desc">Drove BI transformation for enterprise clients, scaling Agile practices and leading internal capability-building through a cross-functional Power BI training program.</p>
+        <div class="tl-win">Improved financial reporting speed by 35% through a MicroStrategy BI application for Private Equity clients.</div>
+        <div class="tl-win">Certified 7 developers through a Power BI training program, increasing team BI capabilities by 45%.</div>
+      </div>
+    </div>
 
-            <div class="job-card">
-                <div class="job-header">
-                    <div>
-                        <div class="job-title">Business Intelligence Engineer</div>
-                        <div class="job-company">VML Mexico</div>
-                    </div>
-                    <div class="job-period">Jul 2016 – Apr 2017</div>
-                </div>
-                <ul>
-                    <li>Developed "Analytics Mission Control Room" featuring 6 real-time dashboards for social media and web analytics</li>
-                    <li>Pioneered AI-driven sentiment analysis processing 30,000 comments daily, increasing client satisfaction by 20%</li>
-                    <li>Reduced manual reporting by 50% through automated Power BI platform</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <div class="timeline-item reveal">
+      <div class="tl-meta">
+        <div class="tl-date">Jul 2016 — Apr 2017</div>
+        <div class="tl-company">VML Mexico</div>
+        <span class="tl-tag">Full-time · Mexico City</span>
+      </div>
+      <div class="tl-content">
+        <div class="tl-role">Business Intelligence Engineer</div>
+        <div class="tl-win">Built an automated Power BI reporting system reducing manual reporting by 50% and improving delivery times by 35%.</div>
+        <div class="tl-win">Pioneered an AI-driven sentiment analysis solution processing 30,000+ daily comments, increasing client satisfaction by 20% across 8 accounts.</div>
+      </div>
+    </div>
 
-    <section id="skills">
-        <h2>Skills & Tools</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Visualization & BI</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">MicroStrategy</span>
-                    <span class="skill-tag">Data Storytelling</span>
-                </div>
-            </div>
+  </div>
+</section>
 
-            <div class="skill-category">
-                <h3>Data & Analytics</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">R Studio</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Alteryx</span>
-                    <span class="skill-tag">Statistical Modeling</span>
-                </div>
-            </div>
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Program & Product Management</div>
+      <div class="skill-pills">
+        <span class="pill">Technical Roadmaps</span>
+        <span class="pill">OKR Planning</span>
+        <span class="pill">Risk Management</span>
+        <span class="pill">Intake & Prioritization</span>
+        <span class="pill">Cross-Functional Delivery</span>
+        <span class="pill">Executive Reporting</span>
+        <span class="pill">Stakeholder Management</span>
+        <span class="pill">Agile / Scrum</span>
+        <span class="pill">Jira</span>
+        <span class="pill">Confluence</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Cloud & Data Engineering</div>
+      <div class="skill-pills">
+        <span class="pill">Snowflake</span>
+        <span class="pill">Microsoft Fabric</span>
+        <span class="pill">Azure</span>
+        <span class="pill">AWS</span>
+        <span class="pill">Databricks</span>
+        <span class="pill">dbt</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Python</span>
+        <span class="pill">Alteryx</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">BI & Visualization</div>
+      <div class="skill-pills">
+        <span class="pill">Power BI</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Looker</span>
+        <span class="pill">Self-Service Analytics</span>
+        <span class="pill">Dashboard Design</span>
+        <span class="pill">Data Storytelling</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">AI Enablement</div>
+      <div class="skill-pills">
+        <span class="pill">Copilot Studio</span>
+        <span class="pill">AI Builder</span>
+        <span class="pill">Generative AI</span>
+        <span class="pill">M365 Copilot</span>
+        <span class="pill">Gemini</span>
+        <span class="pill">Claude</span>
+        <span class="pill">Prompt Engineering</span>
+        <span class="pill">LLM Integration</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="skill-category">
-                <h3>Cloud & Data Platforms</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Snowflake</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">SAP BW</span>
-                    <span class="skill-tag">SAP ECC</span>
-                </div>
-            </div>
+<section id="certifications">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education & Certifications</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">UC San Diego</div>
+      <div class="cert-name">Product Management Professional Program</div>
+      <div class="cert-date">Issued Feb 2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Microsoft</div>
+      <div class="cert-name">Fabric Analytics Engineer Associate (DP-600)</div>
+      <div class="cert-date">Issued 2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Google / Coursera</div>
+      <div class="cert-name">Google Project Management Certificate</div>
+      <div class="cert-date">Issued 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Scaled Agile Inc.</div>
+      <div class="cert-name">SAFe 6.0 Agilist</div>
+      <div class="cert-date">Issued 2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Scrum Alliance</div>
+      <div class="cert-name">Certified Scrum Master® (CSM)</div>
+      <div class="cert-date">Active Credential</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Tecnológico de Monterrey</div>
+      <div class="cert-name">B.S. Industrial Engineering — Minor in Systems</div>
+      <div class="cert-date">Graduated Dec 2015 · Full Sports Scholarship · CENEVAL Outstanding Performance</div>
+    </div>
+  </div>
+</section>
 
-            <div class="skill-category">
-                <h3>Leadership & Strategy</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Team Management</span>
-                    <span class="skill-tag">Agile/Scrum</span>
-                    <span class="skill-tag">Product Management</span>
-                    <span class="skill-tag">Cross-Functional Collaboration</span>
-                    <span class="skill-tag">Strategic Analysis</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-tag">Open to Opportunities</div>
+    <h2 class="contact-headline">Ready to Build Something<br/>That Matters</h2>
+    <p class="contact-sub">Targeting Technical Program Manager, Analytics Manager, and Product Manager roles at enterprise and Fortune 500 companies. TN Visa — available immediately.</p>
+    <div class="contact-actions">
+      <a href="mailto:angel.rmz.jmz@gmail.com" class="btn-light">&#9993; angel.rmz.jmz@gmail.com</a>
+      <a href="https://www.linkedin.com/in/angelramirezj" target="_blank" class="btn-outline-light">&#8599; LinkedIn</a>
+      <a href="https://angelramirezj.com" target="_blank" class="btn-outline-light">&#8599; angelramirezj.com</a>
+      <a href="#" class="btn-outline-light" id="resume-link-2">&#8595; Resume PDF</a>
+    </div>
+  </div>
+</section>
 
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="certifications-grid">
-            <div class="cert-card">
-                <div class="cert-icon">MS</div>
-                <h3>MicroStrategy Certified</h3>
-                <p class="cert-status">Certified</p>
-            </div>
+<footer>
+  <span>&#169; 2026 Angel Ramírez Jiménez</span>
+  <span>Irvine, CA &nbsp;&#183;&nbsp; TN Visa Holder &nbsp;&#183;&nbsp; Bilingual EN / ES</span>
+  <a href="mailto:angel.rmz.jmz@gmail.com">angel.rmz.jmz&#64;gmail.com</a>
+</footer>
 
-            <div class="cert-card">
-                <div class="cert-icon">CSM</div>
-                <h3>Certified Scrum Master</h3>
-                <p class="cert-status">Scrum Alliance</p>
-            </div>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 
-            <div class="cert-card">
-                <div class="cert-icon">SA</div>
-                <h3>SAFe 6.0 Agilist</h3>
-                <p class="cert-status">Scaled Agile Inc.</p>
-            </div>
-
-            <div class="cert-card">
-                <div class="cert-icon">PM</div>
-                <h3>Product Manager Professional</h3>
-                <p class="cert-status">UC San Diego - In Progress</p>
-            </div>
-
-            <div class="cert-card">
-                <div class="cert-icon">DP</div>
-                <h3>Fabric Analytics Professional</h3>
-                <p class="cert-status">DP-600 - In Progress</p>
-            </div>
-
-            <div class="cert-card">
-                <div class="cert-icon">G</div>
-                <h3>Project Management</h3>
-                <p class="cert-status">Google Certified</p>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #f8f9fa;">
-        <h2>Education</h2>
-        <div class="job-card" style="max-width: 600px; margin: 0 auto;">
-            <div class="job-header">
-                <div>
-                    <div class="job-title">B.S. Industrial Engineering</div>
-                    <div class="job-company">Minor in Systems</div>
-                </div>
-            </div>
-            <p style="color: #666; margin-top: 0.5rem;">Tecnológico de Monterrey • Dec 2015 • Mexico City, MX</p>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <h2 style="color: white;">Let's Connect</h2>
-        <div class="contact-links">
-            <a href="mailto:angel.rmz.jmz@gmail.com">✉️ Email</a>
-            <a href="https://www.linkedin.com/in/angelramirezj" target="_blank">💼 LinkedIn</a>
-            <a href="https://angelramirezj.com" target="_blank">🌐 Website</a>
-        </div>
-        <p style="opacity: 0.7; margin-top: 2rem;">© 2025 Angel Ramirez. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        let lastScroll = 0;
-        const nav = document.querySelector('nav');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.job-card, .skill-category, .cert-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+  document.querySelectorAll('#resume-link, #resume-link-2').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Replace the href="#" on these buttons with your hosted PDF URL to enable the download.');
+    });
+  });
+</script>
 </body>
 </html>
